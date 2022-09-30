@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int longestContinuousSubstring(string s) {
+        int j=0;                                                 //min len by default=1; now check if found v=char has same diff in place as in alphabetical order 
+        int ans=1;                                                  // done via i+j-1; if not put j=i;
+        for(int i=1;i<s.length();++i){
+            if(s[i]!=s[j]+i-j) j=i;
+            ans=max(ans,i-j+1);
+        }
+        return ans;
+    }
+};
+
+
